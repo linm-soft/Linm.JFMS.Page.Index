@@ -63,24 +63,59 @@ Or open `docs/index.html` in a browser (relative links work offline).
 ## Deploy — Cloudflare Dashboard (Git)
 
 1. Push to GitHub (`{org}/Linm.JFMS.Page.Index`).
-2. Cloudflare → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+2. Cloudflare → **Workers & Pages** → project **Pages** (not a plain Worker) → **Connect to Git**.
 3. Build settings:
+
+### Option A — recommended (no custom deploy)
 
 | Field | Value |
 |-------|--------|
 | Framework preset | **None** |
-| Build command | *(empty)* |
-| Build output directory | `docs` |
+| **Build command** | *(empty)* |
+| **Deploy command** | *(empty / None)* |
+| **Build output directory** | `docs` |
 | Root directory | `/` |
 | Production branch | `main` |
 
-4. Default URL: `https://linm-jfms-page-index.pages.dev` (or chosen project name).
+### Option B — custom Deploy command (CI log style)
+
+| Field | Value |
+|-------|--------|
+| Build command | *(empty)* |
+| **Deploy command** | `npm run deploy` |
+| Root directory | `/` |
+
+`npm run deploy` = `wrangler pages deploy docs` (see `package.json`).
+
+### ❌ Do not use
+
+```text
+npx wrangler deploy
+```
+
+That is for **Workers** (needs `main` script or `[assets]`). This repo is **Pages** + `pages_build_output_dir = "docs"`.
+
+Log will say:
+
+- *run `wrangler deploy` on a Pages project, use `wrangler pages deploy`*
+- *Missing entry-point to Worker script or to assets directory* → FAIL
+
+Use instead:
+
+```text
+npm run deploy
+# equivalent:
+npx wrangler pages deploy docs --project-name=linm-jfms-page-index
+```
+
+4. Default URL: `https://linm-jfms-page-index.pages.dev` (project name).
 
 ### Custom domain
 
 1. Pages project → **Custom domains** → set host (e.g. `demo.example.com`).
-2. Zone must use **Cloudflare DNS**.
+2. Zone must use **Cloudflare DNS** (CNAME → `{project}.pages.dev`).
 3. Wait SSL **Active**. Prefer **one** host (Cloudflare **or** GitHub Pages) per custom domain.
+
 
 ---
 

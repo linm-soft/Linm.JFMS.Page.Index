@@ -1,5 +1,6 @@
-# Cloudflare Pages — https://developers.cloudflare.com/pages/
-# Output is static HTML in ./docs (no build step).
+# Cloudflare Pages — static HTML in ./docs (no Worker script).
+# Git CI Deploy command MUST be pages deploy (or npm run deploy) — NOT `wrangler deploy`.
+# See README § Deploy — Cloudflare.
 name = "linm-jfms-page-index"
 compatibility_date = "2025-03-01"
 pages_build_output_dir = "docs"
