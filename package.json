@@ -1,0 +1,14 @@
+{
+  "name": "linm-jfms-page-index",
+  "private": true,
+  "version": "1.0.0",
+  "description": "J-FMS marketing / demo static site — Cloudflare Pages",
+  "scripts": {
+    "dev": "npx --yes wrangler@4 pages dev docs --port 8788",
+    "deploy": "npx --yes wrangler@4 pages deploy docs --project-name=linm-jfms-page-index",
+    "deploy:prod": "npx --yes wrangler@4 pages deploy docs --project-name=linm-jfms-page-index --branch=main"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

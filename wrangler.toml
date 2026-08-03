@@ -1,0 +1,5 @@
+# Cloudflare Pages — https://developers.cloudflare.com/pages/
+# Output is static HTML in ./docs (no build step).
+name = "linm-jfms-page-index"
+compatibility_date = "2025-03-01"
+pages_build_output_dir = "docs"

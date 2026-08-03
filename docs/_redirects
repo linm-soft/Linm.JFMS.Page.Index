@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects
+# Legacy path used as https://…/jfms/ (serve same static files)
+/jfms /index.html 200
+/jfms/ /index.html 200
+/jfms/* /:splat 200
+
+# Optional trailing-slash convenience
+/workflow-demo /workflow-demo.html 302
