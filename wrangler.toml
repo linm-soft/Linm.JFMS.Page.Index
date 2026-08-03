@@ -1,6 +1,4 @@
-# Cloudflare Pages — static HTML in ./docs (no Worker script).
-# Git CI Deploy command MUST be pages deploy (or npm run deploy) — NOT `wrangler deploy`.
-# See README § Deploy — Cloudflare.
+# Cloudflare Pages — static site at repo root (no build).
 name = "linm-jfms-page-index"
 compatibility_date = "2025-03-01"
-pages_build_output_dir = "docs"
+pages_build_output_dir = "."

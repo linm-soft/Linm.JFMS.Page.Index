@@ -4,10 +4,9 @@
   "version": "1.0.0",
   "description": "J-FMS marketing / demo static site — Cloudflare Pages",
   "scripts": {
-    "dev": "npx --yes wrangler@4 pages dev docs --port 8788",
-    "deploy": "npx --yes wrangler@4 pages deploy docs --project-name=linm-jfms-page-index",
-    "deploy:prod": "npx --yes wrangler@4 pages deploy docs --project-name=linm-jfms-page-index --branch=main",
-    "check": "node -e \"const fs=require('fs');const req=['docs/index.html','docs/_headers','docs/_redirects','docs/page-icon/title.png','docs/page-icon/login.png','wrangler.toml'];for (const f of req){if(!fs.existsSync(f)){console.error('missing',f);process.exit(1)}}console.log('ok',req.length,'files')\""
+    "dev": "npx --yes wrangler@4 pages dev . --port 8788",
+    "deploy": "npx --yes wrangler@4 pages deploy . --project-name=linm-jfms-page-index",
+    "check": "node -e \"const fs=require('fs');const req=['index.html','_headers','_redirects','page-icon/title.png','page-icon/login.png'];for (const f of req){if(!fs.existsSync(f)){console.error('missing',f);process.exit(1)}}console.log('ok',req.length,'files')\""
   },
   "engines": {
     "node": ">=18"
