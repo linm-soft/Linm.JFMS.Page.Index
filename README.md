@@ -21,12 +21,25 @@ Linm.JFMS.Page.Index/
 ├── docs/                 ← publish root (edit here only)
 │   ├── index.html
 │   ├── workflow-demo.html
+│   ├── page-icon/        ← brand (chỉ 2 file)
+│   │   ├── title.png     ← favicon / tab
+│   │   ├── login.png     ← logo trên page (nav)
+│   │   └── README.txt
 │   ├── _redirects
 │   └── _headers
 ├── wrangler.toml         ← project name + pages_build_output_dir = "docs"
 ├── package.json          ← dev / deploy / check
 └── README.md
 ```
+
+### Brand (`page-icon/`)
+
+| File | Role |
+|------|------|
+| `title.png` | Favicon / title tab |
+| `login.png` | Logo page (nav) |
+
+Ghi đè 2 file rồi `npm run deploy`. Starter từ `Linm.RMMS.Data/logo/web-icon/icons/` (`logo-64` → title, `logo-login` → login).
 
 **Rules**
 

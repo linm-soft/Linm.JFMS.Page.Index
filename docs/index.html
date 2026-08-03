@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="robots" content="noindex"/>
 <title>J-FMS — Fleet Management System</title>
+<link rel="icon" href="page-icon/title.png" type="image/png"/>
+<link rel="apple-touch-icon" href="page-icon/login.png"/>
 <style>
 :root{
   --navy:#0a1628;--green:#059669;--green-mid:#34d399;--green-light:#d1fae5;
@@ -15,7 +17,9 @@
 body{margin:0;font-family:Segoe UI,system-ui,sans-serif;color:var(--txt);background:#fff;line-height:1.5}
 a{color:var(--green);text-decoration:none}
 .nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.5rem;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-.logo{font-weight:800;color:var(--navy);letter-spacing:.02em}.logo span{color:var(--green)}
+.logo{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;color:var(--navy);letter-spacing:.02em;text-decoration:none}
+.logo-img{height:40px;width:auto;max-width:160px;object-fit:contain;flex-shrink:0}
+.logo .logo-text span{color:var(--green)}
 .nav-actions{display:flex;gap:.5rem;align-items:center}
 .lang-btn{border:1px solid var(--border);background:#fff;padding:.35rem .6rem;border-radius:8px;cursor:pointer;font-size:.8rem}
 .lang-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
@@ -67,7 +71,10 @@ footer{padding:2rem 1.5rem;border-top:1px solid var(--border);color:var(--txt2);
 </head>
 <body>
 <nav class="nav">
-  <div class="logo">J-<span>FMS</span></div>
+  <a class="logo" href="index.html">
+    <img class="logo-img" src="page-icon/login.png" height="40" alt="J-FMS"/>
+    <span class="logo-text">J-<span>FMS</span></span>
+  </a>
   <div class="nav-actions">
     <button type="button" class="lang-btn active" onclick="setLang('vi')">VI</button>
     <button type="button" class="lang-btn" onclick="setLang('en')">EN</button>
