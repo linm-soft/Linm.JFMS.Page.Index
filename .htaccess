@@ -1,0 +1,30 @@
+# J-FMS static demo — DirectAdmin / Apache / LiteSpeed
+# Upload toàn bộ package vào public_html của domain chính (Domain Pointer / Alias trỏ chung root).
+
+DirectoryIndex index.html
+
+# Cho phép nhúng demo trong frame (khách / portal)
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "frame-ancestors *"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Chỉ serve khi vào bằng domain demo / domain khách (Domain Pointer Alias).
+  # Block domain hosting dùng chung (vd. linm-soft.com) và mọi host khác.
+  RewriteCond %{HTTP_HOST} !^(www\.)?demo\.hethonganninh\.com$ [NC]
+  RewriteCond %{HTTP_HOST} !^(www\.)?hethonganninh\.com$ [NC]
+  RewriteRule ^ - [F,L]
+
+  # File / thư mục có thật → serve thẳng (CSS, page-icon, workflow-demo.html, …)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Path lạ (ví dụ /jfms/) → index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
